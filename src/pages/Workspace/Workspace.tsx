@@ -8,6 +8,7 @@ import { Controlled as CodeMirror } from 'react-codemirror2'
 import { useParams } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
+import { backendApiUrl } from '../../utils/backendApiUrl'
 import styles from './Workspace.module.css'
 
 type CodeState = string
@@ -24,7 +25,7 @@ const Workspace: React.FC = () => {
 		setOutput(null)
 		setError(null)
 		try {
-			const response = await axios.post('http://localhost:5000/executions', {
+			const response = await axios.post(`${backendApiUrl}/executions`, {
 				language,
 				code,
 			})
