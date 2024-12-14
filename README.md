@@ -1,50 +1,19 @@
-# React + TypeScript + Vite
+Краткое описание задачи: Упрощённый интерфейс редактора кода, где пользователь может писать код на одном из двух языков Python и JavaScript, отправлять его для выполнения (на node js сервер) и получать результаты
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm install
+npm run dev - для фронта
 
-Currently, two official plugins are available:
+В другом терминале запустите бэкенд npm run server
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Фронт запустится на http://localhost:5173.
 
-## Expanding the ESLint configuration
+# Бэкенд запустится на http://localhost:5000.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+мок сервер устроен так:
+Если выбрали язык JavaScript:
+1)Ваш написанный код содержит console.log то тогда выведется Hello world
+2)Если ваш написанный код не содержит console.log то выведется SyntaxError: Unexpected token
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Если выбрали язык Python:
+1)Ваш написанный код содержит print то тогда выведется Hello world
+2)Если ваш написанный код не содержит print то выведется SyntaxError: Unexpected token
