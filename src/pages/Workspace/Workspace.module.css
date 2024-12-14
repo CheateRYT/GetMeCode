@@ -18,8 +18,19 @@
 	display: flex; /* Используем flexbox для горизонтального расположения */
 	width: 100%;
 	max-width: 1200px; /* Максимальная ширина контейнера */
+	flex-direction: row; /* По умолчанию - горизонтально */
 }
 
+@media (max-width: 768px) {
+	/* Меньше 768px - для мобильных устройств */
+	.editorOutputContainer {
+		flex-direction: column; /* Меняем на вертикальное расположение */
+	}
+	.output {
+		width: 100%; /* Ширина блока вывода на мобильных устройствах */
+		margin-top: 20px; /* Отступ сверху для разделения с редактором */
+	}
+}
 .codeMirror {
 	flex: 1; /* Занимает оставшееся пространство */
 	height: 600px; /* Высота редактора */
@@ -29,7 +40,7 @@
 }
 
 .output {
-	width: 300px; /* Ширина блока вывода */
+	width: 200px; /* Ширина блока вывода */
 	background-color: #333;
 	padding: 10px;
 	border-radius: 5px;

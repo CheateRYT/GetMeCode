@@ -46,13 +46,15 @@ const Workspace: React.FC = () => {
 				<h1 className={styles.title}>Рабочее пространство: {language}</h1>
 				<div className={styles.editorOutputContainer}>
 					<CodeMirror
-						value={code}
+						value={typeof code === 'string' ? code : ''}
 						options={{
 							mode: language === 'python' ? 'text/x-python' : 'text/javascript',
 							theme: 'material',
 							lineNumbers: true,
 						}}
-						onBeforeChange={value => {
+						onBeforeChange={(editor, data, value) => {
+							console.log(editor)
+							console.log(data)
 							setCode(value)
 						}}
 						className={styles.codeMirror}
