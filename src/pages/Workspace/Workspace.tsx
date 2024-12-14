@@ -10,15 +10,12 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import styles from './Workspace.module.css'
 
-interface RouteParams {
-	language: string
-}
 type CodeState = string
 type OutputState = string | null
 type ErrorState = string | null
 
 const Workspace: React.FC = () => {
-	const { language } = useParams<RouteParams>()
+	const { language } = useParams()
 	const [code, setCode] = useState<CodeState>('// Напишите ваш код здесь')
 	const [output, setOutput] = useState<OutputState>(null)
 	const [error, setError] = useState<ErrorState>(null)
@@ -54,7 +51,7 @@ const Workspace: React.FC = () => {
 							theme: 'material',
 							lineNumbers: true,
 						}}
-						onBeforeChange={(editor, data, value) => {
+						onBeforeChange={value => {
 							setCode(value)
 						}}
 						className={styles.codeMirror}
