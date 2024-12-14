@@ -1,6 +1,6 @@
 import axios from 'axios'
 import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/material.css' // Темная тема
+import 'codemirror/theme/material.css'
 import React, { useState } from 'react'
 import { Controlled as CodeMirror } from 'react-codemirror2'
 import { useParams } from 'react-router-dom'
@@ -8,29 +8,35 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import styles from './index.module.css'
 
+interface RouteParams {
+	language: string
+}
+
+type CodeState = string
+type OutputState = string | null
+type ErrorState = string | null
+
 const Workspace: React.FC = () => {
-	const { language } = useParams<{ language: string }>()
-	const [code, setCode] = useState('// Напишите ваш код здесь')
-	const [output, setOutput] = useState<string | null>(null)
-	const [error, setError] = useState<string | null>(null)
+	const { language } = useParams<RouteParams>()
+	const [code, setCode] = useState<CodeState>('// Напишите ваш код здесь')
+	const [output, setOutput] = useState<OutputState>(null)
+	const [error, setError] = useState<ErrorState>(null)
 
 	const runCode = async () => {
 		setOutput(null)
 		setError(null)
-
 		try {
 			const response = await axios.post('http://localhost:5000/executions', {
 				language,
 				code,
 			})
-
 			if (response.data.status === 'success') {
 				setOutput(response.data.output)
 			} else {
 				setError(response.data.error)
 			}
-		} catch (err) {
-			setError('Ошибка при отправке запроса на сервер.')
+		} catch (error) {
+			setError(`Ошибка при отправке запроса на сервер. ${error}`)
 		}
 	}
 
@@ -59,7 +65,7 @@ const Workspace: React.FC = () => {
 					{output && <pre>{output}</pre>}
 					{error && <pre style={{ color: 'red' }}>{error}</pre>}
 				</div>
-			</div>{' '}
+			</div>
 			<Footer />
 		</div>
 	)
