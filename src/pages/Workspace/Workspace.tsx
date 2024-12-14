@@ -6,14 +6,13 @@ import 'codemirror/theme/material.css'
 import React, { useState } from 'react'
 import { Controlled as CodeMirror } from 'react-codemirror2'
 import { useParams } from 'react-router-dom'
-import Footer from '../../components/Footer/Footer.module'
+import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import styles from './Workspace.module.css'
 
 interface RouteParams {
 	language: string
 }
-
 type CodeState = string
 type OutputState = string | null
 type ErrorState = string | null
@@ -47,28 +46,30 @@ const Workspace: React.FC = () => {
 			<Header />
 			<div className={styles.container}>
 				<h1 className={styles.title}>Рабочее пространство: {language}</h1>
-				<CodeMirror
-					value={code}
-					options={{
-						mode: language === 'python' ? 'text/x-python' : 'text/javascript',
-						theme: 'material',
-						lineNumbers: true,
-					}}
-					onBeforeChange={(editor, data, value) => {
-						setCode(value)
-					}}
-					className={styles.codeMirror}
-				/>
-				<button className={styles.runButton} onClick={runCode}>
-					Запустить
-				</button>
-				<div className={styles.output}>
-					<h2>Вывод:</h2>
-					{output && <pre>{output}</pre>}
-					{error && <pre style={{ color: 'red' }}>{error}</pre>}
+				<div className={styles.editorOutputContainer}>
+					<CodeMirror
+						value={code}
+						options={{
+							mode: language === 'python' ? 'text/x-python' : 'text/javascript',
+							theme: 'material',
+							lineNumbers: true,
+						}}
+						onBeforeChange={(editor, data, value) => {
+							setCode(value)
+						}}
+						className={styles.codeMirror}
+					/>
+					<div className={styles.output}>
+						<h2>Вывод:</h2>
+						{output && <pre>{output}</pre>}
+						{error && <pre style={{ color: 'red' }}>{error}</pre>}
+						<button className={styles.runButton} onClick={runCode}>
+							Запустить
+						</button>
+					</div>
 				</div>
+				<Footer />
 			</div>
-			<Footer />
 		</div>
 	)
 }
