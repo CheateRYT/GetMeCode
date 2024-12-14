@@ -1,5 +1,7 @@
 import axios from 'axios'
 import 'codemirror/lib/codemirror.css'
+import 'codemirror/mode/javascript/javascript'
+import 'codemirror/mode/python/python'
 import 'codemirror/theme/material.css'
 import React, { useState } from 'react'
 import { Controlled as CodeMirror } from 'react-codemirror2'
