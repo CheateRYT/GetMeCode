@@ -9,33 +9,6 @@
 	animation: fadeIn 1s ease-in-out;
 }
 
-.header {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	padding: 20px 40px;
-}
-
-.title {
-	font-size: 2.5rem;
-	font-weight: bold;
-	font-style: italic;
-	color: #9b59b6;
-}
-
-.navLink {
-	padding: 10px 20px;
-	color: white;
-	border-radius: 5px;
-	background-color: #9b59b6;
-	transition: background-color 0.3s, color 0.3s;
-}
-
-.navLink:hover {
-	background-color: #9b59b6;
-	color: white;
-}
-
 .main {
 	display: flex;
 	flex-direction: column;
