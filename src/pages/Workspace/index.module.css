@@ -1,0 +1,48 @@
+/* pages/Workspace.module.css */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: black;
+	color: white;
+	padding: 20px;
+}
+
+.title {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.runButton {
+	margin-top: 20px;
+	padding: 15px 30px;
+	background-color: #9b59b6;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.runButton:hover {
+	background-color: #8e44ad;
+}
+
+.codeMirror {
+	width: 100%;
+	max-width: 1200px; /* Максимальная ширина редактора */
+	height: 600px; /* Высота редактора */
+	background-color: #2c3e50; /* Темный фон для редактора */
+	border: 1px solid #444; /* Цвет границы редактора */
+}
+
+.output {
+	margin-top: 20px;
+	width: 100%;
+	max-width: 1200px;
+	background-color: #333;
+	padding: 10px;
+	border-radius: 5px;
+}

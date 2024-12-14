@@ -3,9 +3,10 @@ import { FaJsSquare, FaPython } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import { Language } from '../../types/Language'
 import styles from './index.module.css'
 
-const languages = [
+const languages: Language[] = [
 	{
 		name: 'Python',
 		icon: <FaPython className={styles.pythonIcon} />,
