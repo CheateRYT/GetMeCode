@@ -1,11 +1,10 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom' // Импортируем Link из react-router-dom
+import { Link } from 'react-router-dom'
 import TypeIt from 'typeit'
 import styles from './index.module.css'
 
 const Main = () => {
-	// Указываем только HTMLSpanElement для рефа
 	const typeItRef = useRef<HTMLSpanElement | null>(null)
 
 	useEffect(() => {
@@ -13,14 +12,10 @@ const Main = () => {
 			const typeItInstance = new TypeIt(typeItRef.current, {
 				speed: 50,
 				waitUntilVisible: true,
-				loop: true,
 			})
 				.type('Добро пожаловать в GetMeCode — онлайн редактор кода')
-				.pause(1000)
-				.delete(100)
 				.go()
 
-			// Очистка при размонтировании
 			return () => {
 				typeItInstance.destroy()
 			}
@@ -39,7 +34,7 @@ const Main = () => {
 			</header>
 			<main className={styles.main}>
 				<h2 className={styles.subtitle}>
-					<span ref={typeItRef}></span> {/* Используем реф вместо id */}
+					<span ref={typeItRef}></span>
 				</h2>
 				<p className={styles.description}>
 					Аналог leetcode.com где пользователь может писать код на разных
