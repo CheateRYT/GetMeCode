@@ -1,10 +1,10 @@
 import React from 'react'
 import { FaJsSquare, FaPython } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
+import Footer from '../../components/Footer/Footer.module'
+import Header from '../../components/Header/Header'
 import { Language } from '../../types/Language'
-import styles from './index.module.css'
+import styles from './Home.module.css'
 
 const languages: Language[] = [
 	{

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import TypeIt from 'typeit-react'
-import Header from '../../components/Header'
-import styles from './index.module.css'
+import Header from '../../components/Header/Header'
+import styles from './Main.module.css'
 
 const Main = () => {
 	return (

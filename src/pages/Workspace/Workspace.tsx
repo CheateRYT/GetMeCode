@@ -6,9 +6,9 @@ import 'codemirror/theme/material.css'
 import React, { useState } from 'react'
 import { Controlled as CodeMirror } from 'react-codemirror2'
 import { useParams } from 'react-router-dom'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
-import styles from './index.module.css'
+import Footer from '../../components/Footer/Footer.module'
+import Header from '../../components/Header/Header'
+import styles from './Workspace.module.css'
 
 interface RouteParams {
 	language: string

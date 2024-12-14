@@ -1,9 +1,9 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
-import Home from './pages/Home'
-import Main from './pages/Main'
-import Workspace from './pages/Workspace'
+import Home from './pages/Home/Home'
+import Main from './pages/Main/Main'
+import Workspace from './pages/Workspace/Workspace'
 createRoot(document.getElementById('root')!).render(
 	<BrowserRouter>
 		<Routes>
